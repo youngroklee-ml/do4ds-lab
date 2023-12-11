@@ -38,3 +38,13 @@ print(f"Intercept {model.intercept_}")
 print(f"Columns {X.columns}")
 print(f"Coefficients {model.coef_}")
 ```
+
+## Write the model outside the bundle
+
+```{python}
+from vetiver import VetiverModel, vetiver_pin_write
+import pins
+v = VetiverModel(model, model_name='penguin_model', prototype_data=X)
+b = pins.board_folder('data/model', allow_pickle_read=True)
+vetiver_pin_write(b, v)
+```
