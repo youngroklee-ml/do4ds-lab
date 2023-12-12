@@ -7,3 +7,4 @@
 .venv/
 data/
 *.duckdb*
+/_site/
