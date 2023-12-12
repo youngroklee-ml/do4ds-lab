@@ -7,17 +7,19 @@ jupyter: python3
 ---
 
 ```{python}
-from palmerpenguins import penguins
 from pandas import get_dummies
 import numpy as np
 from sklearn.linear_model import LinearRegression
 from sklearn import preprocessing
+import duckdb
 ```
 
 ## Get Data
 
 ```{python}
-df = penguins.load_penguins().dropna()
+con = duckdb.connect('my-db.duckdb')
+df = con.execute("SELECT * FROM penguins").fetchdf().dropna()
+con.close()
 df.head(3)
 ```
 
