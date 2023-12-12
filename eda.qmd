@@ -27,6 +27,7 @@ df |>
       \(x) mean(x, na.rm = TRUE)
     )
   ) |> 
+  dplyr::collect() |> 
   knitr::kable()
 ```
 
