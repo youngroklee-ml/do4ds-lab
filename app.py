@@ -26,18 +26,18 @@ app_ui = ui.page_fluid(
 def server(input, output, session):
   @reactive.Calc
   def vals():
-    d = [{
+    d = {
       "bill_length_mm": input.bill_length(),
-      "sex_Male": input.sex() == "Male",
+      "sex_male": input.sex() == "Male",
       "species_Gentoo": input.species() == "Gentoo",
       "species_Chinstrap": input.species() == "Chinstrap"
-    }]
+    }
     return d
   
   @reactive.Calc
   @reactive.event(input.predict)
   def pred():
-    r = requests.post(api_url, json = vals())
+    r = requests.post(api_url, json = [vals()])
     return r.json().get('predict')[0]
   
   @output
