@@ -8,3 +8,9 @@
 data/
 *.duckdb*
 /_site/
+
+# ignore rendered site
+docs/
+
+# ignore all htmls
+*.html
