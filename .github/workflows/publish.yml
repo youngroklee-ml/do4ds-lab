@@ -37,10 +37,7 @@ jobs:
         with:
           python-version: '3.9.6'
           cache: 'pip'
-      - run: pip install jupyter
       - run: pip install -r requirements.txt
-      - run: pip uninstall rpds
-      - run: pip install rpds-py==0.5.3
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
