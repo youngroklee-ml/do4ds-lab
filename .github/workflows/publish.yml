@@ -7,7 +7,7 @@ name: Quarto Publish
 
 jobs:
   build-deploy:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-20.04
     permissions:
       contents: write
     steps:
@@ -28,7 +28,7 @@ jobs:
         with:
           cache-version: 1
         env:
-          RENV_CONFIG_REPOS_OVERRIDE: https://packagemanager.posit.co/cran/__linux__/jammy/2023-12-15
+          RENV_CONFIG_REPOS_OVERRIDE: https://packagemanager.posit.co/cran/__linux__/focal/2023-12-15
 
       - name: Install Python and Dependencies
         uses: actions/setup-python@v4
